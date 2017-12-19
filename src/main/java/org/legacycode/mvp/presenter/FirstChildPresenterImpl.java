@@ -29,24 +29,18 @@ public class FirstChildPresenterImpl implements FirstChildPresenter {
 
 	@PostConstruct
 	private void init() {
-		// set labeltext in view
-		String labelText = firstChildModel.getLabelText();
-		firstChildView.setFirstChildLabelText(labelText);
-
-		// set buttontext in view
-		String buttonText = firstChildModel.getButtonText();
-		firstChildView.setFirstChildButtonText(buttonText);
+		firstChildView.setFirstChildLabelText(firstChildModel.getLabelText());
+		firstChildView.setFirstChildButtonText(firstChildModel.getButtonText());
 		firstChildView.addFirstChildButtonListener(e -> showInfoDialog());
 	}
 
 	@Override
-	public void setParentPresenter(MainFramePresenter mainFramePresenter) {
-		this.mainFramePresenter = mainFramePresenter;
+	public void setParentPresenter(MainFramePresenter p) {
+		this.mainFramePresenter = p;
 	}
 	
 	private void showInfoDialog() {
-		String message = firstChildModel.getDialogMessageText();
-		firstChildView.showFirstChildInfoDialog(mainFramePresenter, message);
+		firstChildView.showFirstChildInfoDialog(mainFramePresenter, firstChildModel.getDialogMessageText());
 	}
 
 }

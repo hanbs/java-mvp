@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MainFrameViewImpl extends JFrame implements MainFrameView {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1;
 
 	public MainFrameViewImpl() {
 		setLayout(new GridLayout(0, 1, 10, 10));
@@ -18,13 +18,13 @@ public class MainFrameViewImpl extends JFrame implements MainFrameView {
 	}
 
 	@Override
-	public void addFirstChildView(FirstChildView view) {
-		this.add((JPanel) view);
+	public void addFirstChildView(FirstChildView v) {
+		this.add((JPanel) v);
 	}
 
 	@Override
-	public void addSecondChildView(SecondChildView view) {
-		this.add((JPanel) view);
+	public void addSecondChildView(SecondChildView v) {
+		this.add((JPanel) v);
 	}
 
 	@Override

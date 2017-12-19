@@ -6,6 +6,6 @@ public interface FirstChildPresenter {
 
 	FirstChildView createView();
 
-	void setParentPresenter(MainFramePresenter mainFramePresenter);
+	void setParentPresenter(MainFramePresenter p);
 
 }

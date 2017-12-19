@@ -33,9 +33,9 @@ public class MainFramePresenterImpl implements MainFramePresenter {
 	}
 
 	@Override
-	public void handleAppEvent(AppEvent appEvent) {
-		if (appEvent.getAppEvent() == Event.CHANGE_TITLE) {
-			mainFrameModel.setTitle(appEvent.getMessage());
+	public void handleAppEvent(AppEvent e) {
+		if (e.getAppEvent() == Event.CHANGE_TITLE) {
+			mainFrameModel.setTitle(e.getMessage());
 			mainFrameView.setTitle(mainFrameModel.getTitle());
 		}
 	}

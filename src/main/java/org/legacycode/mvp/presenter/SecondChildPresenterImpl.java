@@ -32,13 +32,8 @@ public class SecondChildPresenterImpl implements SecondChildPresenter {
 
 	@PostConstruct
 	private void init() {
-		// set labeltext in view
-		String labelText = secondChildModel.getLabelText();
-		secondChildView.setSecondChildLabelText(labelText);
-
-		// set buttontext in view
-		String buttonText = secondChildModel.getButtonText();
-		secondChildView.setSecondChildButtonText(buttonText);
+		secondChildView.setSecondChildLabelText(secondChildModel.getLabelText());
+		secondChildView.setSecondChildButtonText(secondChildModel.getButtonText());
 		
 		// set button event in view
 		secondChildView.addSecondChildButtonListener(actionEvent -> {
@@ -49,7 +44,7 @@ public class SecondChildPresenterImpl implements SecondChildPresenter {
 	}
 
 	@Override
-	public void setParentPresenter(MainFramePresenter mainFramePresenter) {
-		this.mainFramePresenter = mainFramePresenter;
+	public void setParentPresenter(MainFramePresenter p) {
+		this.mainFramePresenter = p;
 	}
 }

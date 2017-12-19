@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public interface SecondChildView {
 
-	void addSecondChildButtonListener(ActionListener listener);
+	void addSecondChildButtonListener(ActionListener l);
 
 	void refresh();
 

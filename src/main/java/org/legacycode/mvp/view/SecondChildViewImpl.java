@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SecondChildViewImpl extends JPanel implements SecondChildView {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1;
 
 	JButton secondChildButton = new JButton();
 	JLabel secondChildLabel = new JLabel();
@@ -22,8 +22,8 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	}
 
 	@Override
-	public void addSecondChildButtonListener(ActionListener listener) {
-		secondChildButton.addActionListener(listener);
+	public void addSecondChildButtonListener(ActionListener l) {
+		secondChildButton.addActionListener(l);
 	}
 
 	@Override

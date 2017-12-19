@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FirstChildViewImpl extends JPanel implements FirstChildView {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1;
 
 	JButton firstChildButton = new JButton();
 	JLabel firstChildLabel = new JLabel();
@@ -25,8 +25,8 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 	}
 
 	@Override
-	public void addFirstChildButtonListener(ActionListener listener) {
-		firstChildButton.addActionListener(listener);
+	public void addFirstChildButtonListener(ActionListener l) {
+		firstChildButton.addActionListener(l);
 	}
 
 	@Override
@@ -52,8 +52,8 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 	 *            that will be shown in a dialob box.
 	 */
 	@Override
-	public void showFirstChildInfoDialog(MainFramePresenter mainFramePresenter, String message) {
-		JOptionPane.showMessageDialog((JFrame) mainFramePresenter.getMainFrameView(), message);
+	public void showFirstChildInfoDialog(MainFramePresenter p, String message) {
+		JOptionPane.showMessageDialog((JFrame) p.getMainFrameView(), message);
 	}
 
 }

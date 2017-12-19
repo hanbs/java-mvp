@@ -6,7 +6,7 @@ import org.legacycode.mvp.presenter.MainFramePresenter;
 
 public interface FirstChildView {
 
-	void addFirstChildButtonListener(ActionListener listener);
+	void addFirstChildButtonListener(ActionListener l);
 
 	void refresh();
 
@@ -14,6 +14,6 @@ public interface FirstChildView {
 
 	void setFirstChildLabelText(String labelText);
 
-	void showFirstChildInfoDialog(MainFramePresenter mainFramePresenter, String message);
+	void showFirstChildInfoDialog(MainFramePresenter p, String message);
 
 }

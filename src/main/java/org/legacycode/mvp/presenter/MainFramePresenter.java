@@ -7,7 +7,7 @@ public interface MainFramePresenter {
 
 	MainFrameView getMainFrameView();
 
-	void handleAppEvent(AppEvent appEvent);
+	void handleAppEvent(AppEvent e);
 
 	void showMainFrameView();
 
