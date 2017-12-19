@@ -48,11 +48,9 @@ public class MainFramePresenterImpl implements MainFramePresenter {
 
 		// set relationship to firstChild presenter and view
 		firstChildPresenter.setParentPresenter(this);
-		mainFrameView.addFirstChildView(firstChildPresenter.createView());
 
 		// set relationship to secondChild presenter and view
 		secondChildPresenter.setParentPresenter(this);
-		mainFrameView.addSecondChildView(secondChildPresenter.createView());
 	}
 
 	@Override

@@ -20,13 +20,6 @@ public class FirstChildPresenterImpl implements FirstChildPresenter {
 		this.firstChildModel = firstChildModel;
 	}
 
-	@Override
-	public FirstChildView createView() {
-		// repaint the view
-		firstChildView.refresh();
-		return firstChildView;
-	}
-
 	@PostConstruct
 	private void init() {
 		firstChildView.setFirstChildLabelText(firstChildModel.getLabelText());

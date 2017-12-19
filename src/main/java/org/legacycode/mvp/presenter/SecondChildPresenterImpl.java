@@ -23,13 +23,6 @@ public class SecondChildPresenterImpl implements SecondChildPresenter {
 		this.secondChildView = secondChildView;
 	}
 
-	@Override
-	public SecondChildView createView() {
-		// repaint the view
-		secondChildView.refresh();
-		return secondChildView;
-	}
-
 	@PostConstruct
 	private void init() {
 		secondChildView.setSecondChildLabelText(secondChildModel.getLabelText());
