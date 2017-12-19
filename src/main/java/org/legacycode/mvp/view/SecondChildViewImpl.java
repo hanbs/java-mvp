@@ -12,9 +12,8 @@ import org.springframework.stereotype.Component;
 public class SecondChildViewImpl extends JPanel implements SecondChildView {
 
 	private static final long serialVersionUID = 1;
-
-	JButton secondChildButton = new JButton();
-	JLabel secondChildLabel = new JLabel();
+	private JButton secondChildButton = new JButton();
+	private JLabel secondChildLabel = new JLabel();
 
 	public SecondChildViewImpl() {
 		add(secondChildLabel);
@@ -40,6 +39,6 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	@Override
 	public void setSecondChildLabelText(String labelText) {
 		secondChildLabel.setText(labelText);
-	}	
-	
+	}
+
 }

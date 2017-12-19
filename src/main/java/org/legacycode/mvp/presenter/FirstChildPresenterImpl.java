@@ -33,7 +33,7 @@ public class FirstChildPresenterImpl implements FirstChildPresenter {
 	}
 	
 	private void showInfoDialog() {
-		firstChildView.showFirstChildInfoDialog(mainFramePresenter, firstChildModel.getDialogMessageText());
+		firstChildView.showFirstChildInfoDialog(firstChildModel.getDialogMessageText());
 	}
 
 }

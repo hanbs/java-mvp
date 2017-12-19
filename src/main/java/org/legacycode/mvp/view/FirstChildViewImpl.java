@@ -8,17 +8,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import org.legacycode.mvp.presenter.MainFramePresenter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FirstChildViewImpl extends JPanel implements FirstChildView {
 
 	private static final long serialVersionUID = 1;
+	private JButton firstChildButton = new JButton();
+	private JLabel firstChildLabel = new JLabel();
+	private MainFrameView mainFrameView;
 
-	JButton firstChildButton = new JButton();
-	JLabel firstChildLabel = new JLabel();
-
+	@Autowired
 	public FirstChildViewImpl() {
 		add(firstChildLabel);
 		add(firstChildButton);
@@ -45,6 +46,12 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 		firstChildLabel.setText(labelText);
 	}
 
+	@Autowired
+	@Override
+	public void setParentView(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
+	}
+
 	/**
 	 * This messagebox should show how to handle relationship to parent.
 	 * 
@@ -52,8 +59,8 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 	 *            that will be shown in a dialob box.
 	 */
 	@Override
-	public void showFirstChildInfoDialog(MainFramePresenter p, String message) {
-		JOptionPane.showMessageDialog((JFrame) p.getMainFrameView(), message);
+	public void showFirstChildInfoDialog(String message) {
+		JOptionPane.showMessageDialog((JFrame) mainFrameView, message);
 	}
 
 }

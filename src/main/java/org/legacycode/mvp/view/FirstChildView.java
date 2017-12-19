@@ -2,8 +2,6 @@ package org.legacycode.mvp.view;
 
 import java.awt.event.ActionListener;
 
-import org.legacycode.mvp.presenter.MainFramePresenter;
-
 public interface FirstChildView {
 
 	void addFirstChildButtonListener(ActionListener l);
@@ -14,6 +12,8 @@ public interface FirstChildView {
 
 	void setFirstChildLabelText(String labelText);
 
-	void showFirstChildInfoDialog(MainFramePresenter p, String message);
+	void setParentView(MainFrameView mainFrameView);
+	
+	void showFirstChildInfoDialog(String message);
 
 }
