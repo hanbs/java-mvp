@@ -12,7 +12,7 @@ public interface FirstChildView {
 
 	void setFirstChildLabelText(String labelText);
 
-	void setParentView(MainFrameView mainFrameView);
+	void setParentView(MainFrameView v);
 	
 	void showFirstChildInfoDialog(String message);
 

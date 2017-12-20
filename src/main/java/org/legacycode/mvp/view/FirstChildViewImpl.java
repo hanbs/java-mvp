@@ -17,7 +17,7 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 	private static final long serialVersionUID = 1;
 	private JButton firstChildButton = new JButton();
 	private JLabel firstChildLabel = new JLabel();
-	private MainFrameView mainFrameView;
+	private transient MainFrameView mainFrameView;
 
 	@Autowired
 	public FirstChildViewImpl() {
@@ -46,10 +46,10 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 		firstChildLabel.setText(labelText);
 	}
 
-	@Autowired
 	@Override
-	public void setParentView(MainFrameView mainFrameView) {
-		this.mainFrameView = mainFrameView;
+	@Autowired
+	public void setParentView(MainFrameView v) {
+		this.mainFrameView = v;
 	}
 
 	/**
