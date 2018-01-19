@@ -12,13 +12,9 @@ public class FirstChildPresenterImpl implements FirstChildPresenter {
 
 	private FirstChildModel firstChildModel;
 	private FirstChildView firstChildView;
-	private MainFramePresenter mainFramePresenter;
-
-	@Autowired
-	public FirstChildPresenterImpl(FirstChildModel firstChildModel, FirstChildView firstChildView) {
-		this.firstChildView = firstChildView;
-		this.firstChildModel = firstChildModel;
-	}
+	@SuppressWarnings("unused")
+	/** In this class the parent is not used. This is only for example. **/
+	private MainFramePresenter parentPresenter;
 
 	@PostConstruct
 	private void init() {
@@ -27,11 +23,24 @@ public class FirstChildPresenterImpl implements FirstChildPresenter {
 		firstChildView.addFirstChildButtonListener(e -> showInfoDialog());
 	}
 
+	@Autowired
+	@Override
+	public void setFirstChildModel(FirstChildModel firstChildModel) {
+		this.firstChildModel = firstChildModel;
+	}
+
+	@Autowired
+	@Override
+	public void setFirstChildView(FirstChildView firstChildView) {
+		this.firstChildView = firstChildView;
+	}
+
+	@Autowired
 	@Override
 	public void setParentPresenter(MainFramePresenter p) {
-		this.mainFramePresenter = p;
+		this.parentPresenter = p;
 	}
-	
+
 	private void showInfoDialog() {
 		firstChildView.showFirstChildInfoDialog(firstChildModel.getDialogMessageText());
 	}

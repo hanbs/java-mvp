@@ -13,15 +13,8 @@ import org.springframework.stereotype.Component;
 public class MainFrameViewImpl extends JFrame implements MainFrameView {
 
 	private static final long serialVersionUID = 1;
-	private final transient FirstChildView firstChildView;
-	private final transient SecondChildView secondChildView;
-
-	@Autowired
-	public MainFrameViewImpl(FirstChildView firstChildView, SecondChildView secondChildView) {
-		this.firstChildView = firstChildView;
-		this.secondChildView = secondChildView;
-
-	}
+	private transient FirstChildView firstChildView;
+	private transient SecondChildView secondChildView;
 
 	@PostConstruct
 	public void init() {
@@ -29,6 +22,18 @@ public class MainFrameViewImpl extends JFrame implements MainFrameView {
 		setLocationRelativeTo(null);
 		add((JPanel) firstChildView);
 		add((JPanel) secondChildView);
+	}
+
+	@Autowired
+	@Override
+	public void setFirstChildView(FirstChildView firstChildView) {
+		this.firstChildView = firstChildView;
+	}
+
+	@Autowired
+	@Override
+	public void setSecondChildView(SecondChildView secondChildView) {
+		this.secondChildView = secondChildView;
 	}
 
 	@Override

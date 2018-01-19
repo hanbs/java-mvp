@@ -17,16 +17,6 @@ public class MainFramePresenterImpl implements MainFramePresenter {
 	private MainFrameView mainFrameView;
 	private SecondChildPresenter secondChildPresenter;
 
-	@Autowired
-	public MainFramePresenterImpl(MainFrameModel mainFrameModel, MainFrameView mainFrameView,
-			FirstChildPresenter firstChildPresenter, SecondChildPresenter secondChildPresenter) {
-
-		this.mainFrameModel = mainFrameModel;
-		this.mainFrameView = mainFrameView;
-		this.firstChildPresenter = firstChildPresenter;
-		this.secondChildPresenter = secondChildPresenter;
-	}
-
 	@Override
 	public void handleAppEvent(AppEvent e) {
 		if (e.getAppEvent() == Event.CHANGE_TITLE) {
@@ -46,6 +36,30 @@ public class MainFramePresenterImpl implements MainFramePresenter {
 
 		// set relationship to secondChild presenter and view
 		secondChildPresenter.setParentPresenter(this);
+	}
+
+	@Autowired
+	@Override
+	public void setFirstChildPresenter(FirstChildPresenter firstChildPresenter) {
+		this.firstChildPresenter = firstChildPresenter;
+	}
+
+	@Autowired
+	@Override
+	public void setMainFrameModel(MainFrameModel mainFrameModel) {
+		this.mainFrameModel = mainFrameModel;
+	}
+
+	@Autowired
+	@Override
+	public void setMainFrameView(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
+	}
+
+	@Autowired
+	@Override
+	public void setSecondChildPresenter(SecondChildPresenter secondChildPresenter) {
+		this.secondChildPresenter = secondChildPresenter;
 	}
 
 	@Override

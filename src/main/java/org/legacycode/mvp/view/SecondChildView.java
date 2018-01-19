@@ -8,6 +8,8 @@ public interface SecondChildView {
 
 	void refresh();
 
+	void setParentView(MainFrameView v);
+
 	void setSecondChildButtonText(String buttonText);
 
 	void setSecondChildLabelText(String labelText);

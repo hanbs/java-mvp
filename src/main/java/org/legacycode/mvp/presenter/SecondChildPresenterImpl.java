@@ -13,31 +13,38 @@ import org.springframework.stereotype.Component;
 @Component
 public class SecondChildPresenterImpl implements SecondChildPresenter {
 
-	private MainFramePresenter mainFramePresenter;
+	private MainFramePresenter parentPresenter;
 	private SecondChildModel secondChildModel;
 	private SecondChildView secondChildView;
-
-	@Autowired
-	public SecondChildPresenterImpl(SecondChildModel secondChildModel, SecondChildView secondChildView) {
-		this.secondChildModel = secondChildModel;
-		this.secondChildView = secondChildView;
-	}
 
 	@PostConstruct
 	private void init() {
 		secondChildView.setSecondChildLabelText(secondChildModel.getLabelText());
 		secondChildView.setSecondChildButtonText(secondChildModel.getButtonText());
-		
+
 		// set button event in view
 		secondChildView.addSecondChildButtonListener(actionEvent -> {
 			AppEvent appEvent = new AppEventImpl(Event.CHANGE_TITLE);
 			appEvent.setMessage(secondChildModel.getNewTitle());
-			mainFramePresenter.handleAppEvent(appEvent);
+			parentPresenter.handleAppEvent(appEvent);
 		});
 	}
 
 	@Override
 	public void setParentPresenter(MainFramePresenter p) {
-		this.mainFramePresenter = p;
+		this.parentPresenter = p;
 	}
+
+	@Autowired
+	@Override
+	public void setSecondChildModel(SecondChildModel secondChildModel) {
+		this.secondChildModel = secondChildModel;
+	}
+
+	@Autowired
+	@Override
+	public void setSecondChildView(SecondChildView secondChildView) {
+		this.secondChildView = secondChildView;
+	}
+
 }
