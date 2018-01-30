@@ -35,3 +35,4 @@ Inspired by following references:
 [MainFrameDiagram]: src/main/java/org/legacycode/mvp/uml/MainFrameDiagram.png
 [FirstChildDiagram]: src/main/java/org/legacycode/mvp/uml/FirstChildDiagram.png
 [SecondChildDiagram]: src/main/java/org/legacycode/mvp/uml/SecondChildDiagram.png
+
