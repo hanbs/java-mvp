@@ -31,8 +31,8 @@ Inspired by following references:
 [3]: https://martinfowler.com/eaaDev/PassiveScreen.html
 [4]: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 
-[ApplicationDiagram]: src/main/java/org/legacycode/mvp/uml/ApplicationDiagram.png
-[MainFrameDiagram]: src/main/java/org/legacycode/mvp/uml/MainFrameDiagram.png
-[FirstChildDiagram]: src/main/java/org/legacycode/mvp/uml/FirstChildDiagram.png
-[SecondChildDiagram]: src/main/java/org/legacycode/mvp/uml/SecondChildDiagram.png
+[ApplicationDiagram]: src/main/resources/uml/ApplicationDiagram.png
+[MainFrameDiagram]: src/main/resources/uml/MainFrameDiagram.png
+[FirstChildDiagram]: src/main/resources/uml/FirstChildDiagram.png
+[SecondChildDiagram]: src/main/resources/uml/SecondChildDiagram.png
 
