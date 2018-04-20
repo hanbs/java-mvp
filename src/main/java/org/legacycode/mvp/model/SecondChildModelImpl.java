@@ -1,9 +1,23 @@
 package org.legacycode.mvp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.legacycode.mvp.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SecondChildModelImpl implements SecondChildModel {
+
+	@Override
+	public List<User> getAllUsers() {
+		// data from database or elsewhere
+		List<User> users = new ArrayList<>();
+		users.add(new User("Perry", "Byerly", "PerryLByerly@dayrep.com"));
+		users.add(new User("Ricardo", "Stiles", "RicardoLStiles@jourrapide.com"));
+		users.add(new User("Albert", "Yates", "AlbertDYates@rhyta.com"));
+		return users;
+	}
 
 	@Override
 	public String getButtonText() {

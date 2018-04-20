@@ -1,7 +1,10 @@
 package org.legacycode.mvp.presenter;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
+import org.legacycode.mvp.entity.User;
 import org.legacycode.mvp.event.AppEvent;
 import org.legacycode.mvp.event.AppEventImpl;
 import org.legacycode.mvp.event.Event;
@@ -21,13 +24,17 @@ public class SecondChildPresenterImpl implements SecondChildPresenter {
 	private void init() {
 		secondChildView.setSecondChildLabelText(secondChildModel.getLabelText());
 		secondChildView.setSecondChildButtonText(secondChildModel.getButtonText());
-
+		
 		// set button event in view
 		secondChildView.addSecondChildButtonListener(actionEvent -> {
 			AppEvent appEvent = new AppEventImpl(Event.CHANGE_TITLE);
 			appEvent.setMessage(secondChildModel.getNewTitle());
 			parentPresenter.handleAppEvent(appEvent);
 		});
+		
+		// set tabledata in view
+		List<User> users = secondChildModel.getAllUsers();
+		secondChildView.setSecondChildTableData(users);
 	}
 
 	@Override
