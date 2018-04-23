@@ -1,4 +1,4 @@
-package org.legacycode.mvp.view.tablemodel;
+package org.legacycode.mvp.view.table;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import javax.swing.table.AbstractTableModel;
 
 import org.legacycode.mvp.entity.User;
 
-public class UserTableModel extends AbstractTableModel {
+public class UserTableModelImpl extends AbstractTableModel implements UserTableModel {
 	private static final long serialVersionUID = 1L;
 	private transient List<User> users;
 
-	public UserTableModel(List<User> users) {
+	public UserTableModelImpl(List<User> users) {
 		this.users = users;
 	}
 
@@ -24,6 +24,7 @@ public class UserTableModel extends AbstractTableModel {
 		return users.size();
 	}
 
+	@Override
 	public User getUser(int rowIndex) {
 		return users.get(rowIndex);
 	}

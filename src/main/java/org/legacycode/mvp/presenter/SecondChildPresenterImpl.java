@@ -12,6 +12,8 @@ import org.legacycode.mvp.event.AppEventImpl;
 import org.legacycode.mvp.event.Event;
 import org.legacycode.mvp.model.SecondChildModel;
 import org.legacycode.mvp.view.SecondChildView;
+import org.legacycode.mvp.view.table.UserTableModel;
+import org.legacycode.mvp.view.table.UserTableModelImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -36,13 +38,14 @@ public class SecondChildPresenterImpl implements SecondChildPresenter {
 
 		// set tabledata in view
 		List<User> users = secondChildModel.getAllUsers();
-		secondChildView.setSecondChildTableData(users);
+		UserTableModel userTableModel = new UserTableModelImpl(users);
+		secondChildView.getSecondChildUserTable().setModel(userTableModel);
 
 		// set table event in view
-		secondChildView.addSecondChildTableMouseListener(new MouseAdapter() {
+		secondChildView.getSecondChildUserTable().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				User user = secondChildView.getSecondChildTableUser(secondChildView.getSecondChildTableSelectedRow());
+				User user = secondChildView.getSecondChildUserTable().getUser(secondChildView.getSecondChildUserTable().getSelectedRow());
 				secondChildView.showSecondChildInfoDialog(user.getLastName() + ", " + user.getFirstName());
 			}
 		});

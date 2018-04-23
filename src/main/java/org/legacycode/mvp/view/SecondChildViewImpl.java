@@ -1,18 +1,15 @@
 package org.legacycode.mvp.view;
 
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
-import org.legacycode.mvp.entity.User;
-import org.legacycode.mvp.view.tablemodel.UserTableModel;
+import org.legacycode.mvp.view.table.UserTable;
+import org.legacycode.mvp.view.table.UserTableImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,13 +22,11 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	private transient MainFrameView parentView;
 	private JButton secondChildButton = new JButton();
 	private JLabel secondChildLabel = new JLabel();
-	private JTable secondChildTable = new JTable();
-	private UserTableModel userTableModel;
-
+	private UserTableImpl secondChildUserTable = new UserTableImpl();
 	public SecondChildViewImpl() {
 		add(secondChildLabel);
 		add(secondChildButton);
-		add(secondChildTable);
+		add(secondChildUserTable);
 	}
 
 	@Override
@@ -40,18 +35,8 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	}
 
 	@Override
-	public void addSecondChildTableMouseListener(MouseListener listSelectionListener) {
-		secondChildTable.addMouseListener(listSelectionListener);
-	}
-
-	@Override
-	public int getSecondChildTableSelectedRow() {
-		return secondChildTable.getSelectedRow();
-	}
-
-	@Override
-	public User getSecondChildTableUser(int row) {
-		return userTableModel.getUser(row);
+	public UserTable getSecondChildUserTable() {
+		return this.secondChildUserTable;
 	}
 
 	@Override
@@ -70,16 +55,10 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	public void setSecondChildButtonText(String buttonText) {
 		secondChildButton.setText(buttonText);
 	}
-
+	
 	@Override
 	public void setSecondChildLabelText(String labelText) {
 		secondChildLabel.setText(labelText);
-	}
-
-	@Override
-	public void setSecondChildTableData(List<User> users) {
-		userTableModel = new UserTableModel(users);
-		secondChildTable.setModel(userTableModel);
 	}
 	
 	/**
@@ -92,4 +71,5 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	public void showSecondChildInfoDialog(String message) {
 		JOptionPane.showMessageDialog((JFrame) parentView, message);
 	}
+
 }

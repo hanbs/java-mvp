@@ -1,20 +1,14 @@
 package org.legacycode.mvp.view;
 
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.util.List;
 
-import org.legacycode.mvp.entity.User;
+import org.legacycode.mvp.view.table.UserTable;
 
 public interface SecondChildView {
 
 	void addSecondChildButtonListener(ActionListener l);
 
-	void addSecondChildTableMouseListener(MouseListener l);
-
-	int getSecondChildTableSelectedRow();
-
-	User getSecondChildTableUser(int row);
+	UserTable getSecondChildUserTable();
 
 	void refresh();
 
@@ -23,8 +17,6 @@ public interface SecondChildView {
 	void setSecondChildButtonText(String buttonText);
 
 	void setSecondChildLabelText(String labelText);
-
-	void setSecondChildTableData(List<User> users);
 
 	void showSecondChildInfoDialog(String message);
 
