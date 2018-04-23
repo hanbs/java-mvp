@@ -1,10 +1,13 @@
 package org.legacycode.mvp.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -23,6 +26,7 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	private JButton secondChildButton = new JButton();
 	private JLabel secondChildLabel = new JLabel();
 	private JTable secondChildTable = new JTable();
+	private UserTableModel userTableModel;
 
 	public SecondChildViewImpl() {
 		add(secondChildLabel);
@@ -33,6 +37,21 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 	@Override
 	public void addSecondChildButtonListener(ActionListener l) {
 		secondChildButton.addActionListener(l);
+	}
+
+	@Override
+	public void addSecondChildTableMouseListener(MouseListener listSelectionListener) {
+		secondChildTable.addMouseListener(listSelectionListener);
+	}
+
+	@Override
+	public int getSecondChildTableSelectedRow() {
+		return secondChildTable.getSelectedRow();
+	}
+
+	@Override
+	public User getSecondChildTableUser(int row) {
+		return userTableModel.getUser(row);
 	}
 
 	@Override
@@ -59,8 +78,18 @@ public class SecondChildViewImpl extends JPanel implements SecondChildView {
 
 	@Override
 	public void setSecondChildTableData(List<User> users) {
-		UserTableModel userTableModel = new UserTableModel(users);
+		userTableModel = new UserTableModel(users);
 		secondChildTable.setModel(userTableModel);
 	}
-
+	
+	/**
+	 * This messagebox should show how to handle relationship to parent.
+	 * 
+	 * @param message
+	 *            that will be shown in a dialob box.
+	 */
+	@Override
+	public void showSecondChildInfoDialog(String message) {
+		JOptionPane.showMessageDialog((JFrame) parentView, message);
+	}
 }

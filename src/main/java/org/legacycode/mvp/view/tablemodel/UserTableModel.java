@@ -1,6 +1,5 @@
 package org.legacycode.mvp.view.tablemodel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
@@ -12,7 +11,7 @@ public class UserTableModel extends AbstractTableModel {
 	private transient List<User> users;
 
 	public UserTableModel(List<User> users) {
-		this.users = new ArrayList<>(users);
+		this.users = users;
 	}
 
 	@Override
@@ -23,6 +22,10 @@ public class UserTableModel extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		return users.size();
+	}
+
+	public User getUser(int rowIndex) {
+		return users.get(rowIndex);
 	}
 
 	@Override
