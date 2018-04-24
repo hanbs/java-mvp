@@ -1,6 +1,7 @@
 package org.legacycode.mvp.view.table;
 
 import javax.swing.JTable;
+import javax.swing.table.TableModel;
 
 import org.legacycode.mvp.entity.User;
 
@@ -14,7 +15,7 @@ public class UserTableImpl extends JTable implements UserTable {
 
 	@Override
 	public void setModel(UserTableModel userTableModel) {
-		super.setModel(userTableModel);
+		super.setModel((TableModel) userTableModel);
 	}
 
 }
