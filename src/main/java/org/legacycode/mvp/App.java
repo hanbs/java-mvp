@@ -14,7 +14,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class App {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		new AnnotationConfigApplicationContext(AppConfig.class).getBean(MainFramePresenter.class).showMainFrameView();
+		new AnnotationConfigApplicationContext(AppConfig.class)
+				.getBean(MainFramePresenter.class)
+				.showMainFrameView();
 	}
 
 }

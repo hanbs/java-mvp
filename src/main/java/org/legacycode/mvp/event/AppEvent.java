@@ -1,8 +1,8 @@
 package org.legacycode.mvp.event;
 
 /**
- * This AppEvent class is used to handle application events. It uses the
- * {@link Event} enumeration to throw application events.
+ * This AppEvent class is used to handle application functional. It uses the
+ * {@link Event} enumeration to throw application functional.
  * 
  * @author legacycode
  *
