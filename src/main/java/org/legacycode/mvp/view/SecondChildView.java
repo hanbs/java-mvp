@@ -2,6 +2,7 @@ package org.legacycode.mvp.view;
 
 import java.awt.event.ActionListener;
 
+import org.legacycode.mvp.presenter.SecondChildPresenter;
 import org.legacycode.mvp.view.table.UserTable;
 
 public interface SecondChildView {
@@ -17,6 +18,8 @@ public interface SecondChildView {
 	void setSecondChildButtonText(String buttonText);
 
 	void setSecondChildLabelText(String labelText);
+
+	void setSecondChildPresenter(SecondChildPresenter secondChildPresenter);
 
 	void showSecondChildInfoDialog(String message);
 

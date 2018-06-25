@@ -11,4 +11,6 @@ public interface SecondChildPresenter {
 
 	void setSecondChildView(SecondChildView secondChildView);
 
+	void showSecondChildInfoDialog();
+
 }

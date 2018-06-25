@@ -2,6 +2,7 @@ package org.legacycode.mvp;
 
 import org.legacycode.mvp.presenter.MainFramePresenter;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 /**
  * This is the main entry point. This project uses annotation based
@@ -12,9 +13,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *
  */
 public class App {
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		new AnnotationConfigApplicationContext(AppConfig.class).getBean(MainFramePresenter.class).showMainFrameView();
+		try (final AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+				AppConfig.class)) {
+			applicationContext.getBean(MainFramePresenter.class).showMainFrameView();
+		}
 	}
 
 }

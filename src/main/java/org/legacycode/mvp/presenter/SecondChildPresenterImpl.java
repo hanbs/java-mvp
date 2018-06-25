@@ -1,7 +1,5 @@
 package org.legacycode.mvp.presenter;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -40,15 +38,6 @@ public class SecondChildPresenterImpl implements SecondChildPresenter {
 		List<User> users = secondChildModel.getAllUsers();
 		UserTableModel userTableModel = new UserTableModelImpl(users);
 		secondChildView.getSecondChildUserTable().setModel(userTableModel);
-
-		// set table event in view
-		secondChildView.getSecondChildUserTable().addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				User user = secondChildView.getSecondChildUserTable().getUser(secondChildView.getSecondChildUserTable().getSelectedRow());
-				secondChildView.showSecondChildInfoDialog(user.getLastName() + ", " + user.getFirstName());
-			}
-		});
 	}
 
 	@Override
@@ -66,6 +55,12 @@ public class SecondChildPresenterImpl implements SecondChildPresenter {
 	@Override
 	public void setSecondChildView(SecondChildView secondChildView) {
 		this.secondChildView = secondChildView;
+	}
+	
+	@Override
+	public void showSecondChildInfoDialog() {
+		User user = secondChildView.getSecondChildUserTable().getUser(secondChildView.getSecondChildUserTable().getSelectedRow());
+		secondChildView.showSecondChildInfoDialog(user.getLastName() + ", " + user.getFirstName());
 	}
 
 }

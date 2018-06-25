@@ -2,12 +2,14 @@ package org.legacycode.mvp.view;
 
 import java.awt.event.ActionListener;
 
+import javax.annotation.PostConstruct;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import org.legacycode.mvp.presenter.FirstChildPresenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,17 +19,21 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 	private static final long serialVersionUID = 1;
 	private JButton firstChildButton = new JButton();
 	private JLabel firstChildLabel = new JLabel();
-	private transient MainFrameView parentView;
 
-	@Autowired
-	public FirstChildViewImpl() {
-		add(firstChildLabel);
-		add(firstChildButton);
-	}
+	@SuppressWarnings("unused")
+	/** In this class the presenter is not used. This is only for example. **/
+	private transient FirstChildPresenter firstChildPresenter;
+	private transient MainFrameView parentView;
 
 	@Override
 	public void addFirstChildButtonListener(ActionListener l) {
 		firstChildButton.addActionListener(l);
+	}
+
+	@PostConstruct
+	public void init() {
+		add(firstChildLabel);
+		add(firstChildButton);
 	}
 
 	@Override
@@ -44,6 +50,12 @@ public class FirstChildViewImpl extends JPanel implements FirstChildView {
 	@Override
 	public void setFirstChildLabelText(String labelText) {
 		firstChildLabel.setText(labelText);
+	}
+
+	@Autowired
+	@Override
+	public void setFirstChildPresenter(FirstChildPresenter firstChildPresenter) {
+		this.firstChildPresenter = firstChildPresenter;
 	}
 
 	@Override
